@@ -214,6 +214,12 @@ const Swipeout = React.createClass({
     }
 
     if (this.state.swiping) {
+      if(posX == 0) {
+        var onPress = this.props.onPress;
+        if(onPress)
+          return onPress();
+      }
+      
       if (openRight && contentPos < 0 && posX < 0) {
         // open swipeout right
         this._tweenContent('contentPos', -btnsRightWidth);
